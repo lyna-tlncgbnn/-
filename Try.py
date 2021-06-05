@@ -16,8 +16,7 @@ def show(csv_data,model):
     fig , ax = plt.subplots()
     ax.plot(csv_data)
     st.pyplot(fig)
-    for i in range(10):
-        st.write(i)
+    st.write(csv_data)
     mfcc_data = getdata(csv_data)
 
     st.subheader("mfcc")

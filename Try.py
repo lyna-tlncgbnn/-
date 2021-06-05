@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
+import librosa
 from io import BytesIO
 from mpl_toolkits.mplot3d import Axes3D
 import torch
@@ -13,6 +14,7 @@ def show(csv_data,model):
     原始数据波形图
     '''
     st.subheader("原始波形图")
+    mfccs = librosa.feature.mfcc(csv_data,13,lifter=0)
     fig , ax = plt.subplots()
     ax.plot(csv_data)
     st.pyplot(fig)

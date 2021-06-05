@@ -14,7 +14,6 @@ def show(csv_data,model):
     原始数据波形图
     '''
     st.subheader("原始波形图")
-    mfccs = librosa.feature.mfcc(csv_data,13,lifter=0)
     fig , ax = plt.subplots()
     ax.plot(csv_data)
     st.pyplot(fig)

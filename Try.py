@@ -16,7 +16,8 @@ def show(csv_data,model):
     fig , ax = plt.subplots()
     ax.plot(csv_data)
     st.pyplot(fig)
-    if mfcc_data = getdata(csv_data):
+    mfcc_data = getdata(csv_data)
+    if mfcc_data:
         st.write("success")
     else:
         st.write("false")

@@ -4,4 +4,5 @@ streamlit
 matplotlib
 torch
 sklearn
-librosa
+numba==0.48.0
+librosa==0.6.0

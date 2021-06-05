@@ -17,10 +17,6 @@ def show(csv_data,model):
     ax.plot(csv_data)
     st.pyplot(fig)
     mfcc_data = getdata(csv_data)
-    if mfcc_data:
-        st.write("success")
-    else:
-        st.write("false")
     st.subheader("mfcc")
     mfcc_da = np.array(mfcc_data)
     st.line_chart(mfcc_da.T)

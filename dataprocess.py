@@ -4,7 +4,6 @@ import librosa
 import glob
 import os
 import torch
-imoprt streamlit as st
 def extract_mfcc(audio_data,n_mfcc):
     mfccs = librosa.feature.mfcc(audio_data,n_mfcc=n_mfcc,lifter=0) #(n_mfcc,t)
     return np.mean(mfccs.T,axis=0)
@@ -26,7 +25,6 @@ def getdata(file):
     feature = []
     for j in data_seg:
         mfccs_dim = 128
-        st.write(j)
         mfccs = extract_mfcc(j,n_mfcc=mfccs_dim)
         feature.append(mfccs)
     feature = np.array(feature)

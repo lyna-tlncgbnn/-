@@ -8,8 +8,6 @@ from network2 import SoundClassifyNet2D
 from dataprocess import predict
 from train2D import start
 import os
-import tkinter as tk
-from tkinter import filedialog
 import easygui as g
 def get_model():
     model = SoundClassifyNet2D(2)

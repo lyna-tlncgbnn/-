@@ -1,5 +1,8 @@
+librosa
+torch
+sklearn
+matplotlib
 numpy
 pandas
-streamlit
-matplotlib
-torch
+numba
+easygui

@@ -137,9 +137,9 @@ def start(epochs,lr,optim,features,labels):
         opt_func = torch.optim.RMSprop
     history = [evaluate(model, val_loader)]
     history += train(epochs, lr, model, train_loader, val_loader, opt_func)
-    model_dir = '../model/'
-    save_model_path = os.path.join(model_dir, 'streamlit.pth')
-    torch.save(model.state_dict(), save_model_path)
+#    model_dir = '../model/'
+#    save_model_path = os.path.join(model_dir, 'streamlit.pth')
+#    torch.save(model.state_dict(), save_model_path)
     return model.state_dict()
 #features = torch.load("features_mfcc_float.pt")
 #labels = torch.load("labels.pt")

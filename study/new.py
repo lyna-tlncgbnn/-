@@ -109,4 +109,5 @@ def main():
         process_data()
     else:
         st.write(torch.cuda.is_available())
+        Train()
 main()

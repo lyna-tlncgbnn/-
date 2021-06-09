@@ -108,5 +108,5 @@ def main():
     elif Choose == '数据处理':
         process_data()
     else:
-        Train()
+        st.write(torch.cuda.is_available())
 main()

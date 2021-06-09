@@ -8,7 +8,8 @@ from network2 import SoundClassifyNet2D
 from dataprocess import predict
 from train2D import start
 import os
-import easygui as g
+import pickle
+import base64
 def get_model():
     model = SoundClassifyNet2D(2)
     checkpoint1 = torch.load('model.pth', map_location=torch.device('cpu'))
@@ -66,6 +67,11 @@ def show(csv_data,model):
         st.success("正常")
     else:
         st.error("故障")
+def download_model(model):
+    output_model = pickle.dumps(model)
+    b64 = base64.b64encode(output_model).decode()
+    href = f'<a href="data:file/output_model;base64,{b64}" download="mymodel.pth">Download Trained Model .pth File</a>'
+    st.markdown(href, unsafe_allow_html=True)
 def process_data():
     st.sidebar.markdown("请选择数据集所在的文件夹")
 def Train():
@@ -85,17 +91,14 @@ def Train():
     with col3:
         option = st.selectbox("请选择优化方法",("Adam",'SGD','RMSprop'))
     tag = 0
-    if mid.button("训练"):
-        
+    if mid.button("训练"):        
         data = torch.load(mfcc)
         val = torch.load(label)
         modeldata = start(epoch,lr,option,data,val)
         st.subheader("训练结束")
-        tag = 1
-    if st.button("保存模型"):
-        mul = g.filesavebox(title="请选择保存路径及文件名",filetypes="*.pth")
-        torch.save(model.state_dict(), mul) 
-        st.write("保存成功")
+        st.write("点击下方链接下载模型")
+        download_model(model)
+
 
 def main():
     st.sidebar.markdown("# 请选择需求")

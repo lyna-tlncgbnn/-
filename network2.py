@@ -285,12 +285,13 @@ class SoundClassifyNet2D(AudioClassificationBase):
         self.tail = nn.Sequential(
             nn.Dropout(0.5),
             nn.Linear(128, 64),
+            
+        self.end = nn.Sequential(
             nn.LeakyReLU(0.01),
             nn.Linear(64, 16),
             nn.LeakyReLU(0.01),
             nn.Linear(16, 3)
         )
-        self.end = nn.Sequential(
             nn.Linear(3,output_class),
             nn.Softmax(dim=1)
         )

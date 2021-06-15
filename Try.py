@@ -39,7 +39,7 @@ def show(csv_data,model):
         st.error("故障")
 def get_model():
     model = SoundClassifyNet2D(2)
-    checkpoint1 = torch.load('model.pth', map_location=torch.device('cpu'))
+    checkpoint1 = torch.load('streamlit-64-1.pth', map_location=torch.device('cpu'))
     model.load_state_dict({k.replace('module.', ''): v for k, v in checkpoint1.items()})
     return model
 def run_app():

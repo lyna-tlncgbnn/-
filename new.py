@@ -27,7 +27,7 @@ def display_app():
     else:
         file = pd.read_csv("bad.csv",header=None)
     st.sidebar.markdown("### 第二步：点击查看结果")
-    left,mid,right = st.sidebar.beta_columns(3)
+    left,mid,right = st.sidebar.columns(3)
     st.header("马达声音测试")
     st.subheader("使用方法")
     '''
@@ -83,9 +83,9 @@ def Train():
     label = st.sidebar.file_uploader("请上传labels(.pt)")
     model = SoundClassifyNet2D(2)
     st.sidebar.markdown("### 第二步：训练模型")
-    left,mid,right = st.sidebar.beta_columns(3)
+    left,mid,right = st.sidebar.columns(3)
     st.subheader("简单配置")
-    col1,col2,col3 = st.beta_columns(3)
+    col1,col2,col3 = st.columns(3)
     with col1:
         epoch = st.number_input("epoch",min_value=1,max_value=1000,value=80)
     with col2:
@@ -104,7 +104,7 @@ def Train():
 
 
 def main():
-    '''
+    
     st.sidebar.markdown("# 请选择需求")
     Choose = st.sidebar.selectbox("选择步骤",['数据处理','模型训练','效果展示'],key='mian')
     if Choose == '效果展示':
@@ -113,6 +113,6 @@ def main():
         process_data()
     else:
         Train()
-    '''
-    display_app()
+    
+    #display_app()
 main()
